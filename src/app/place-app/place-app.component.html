@@ -1,0 +1,136 @@
+<div class="row">
+    <div class="col-md-2 mt-5">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="col-md-6 mt-5 ml-5">
+        <form [formGroup]="appointmentForm">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="First name" formControlName="fname">
+                <div *ngIf="f.fname.touched && f.fname.invalid" style="color: red;">Required Field.</div>
+
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" formControlName="lname">
+                <div *ngIf="f.lname.touched && f.lname.invalid" style="color: red;">Required Field.</div>
+
+              </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Shipping Address">
+                </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="City" formControlName="city">
+                <div *ngIf="f.city.touched && f.city.invalid" style="color: red;">Required Field.</div>
+
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="State">
+
+              </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                  <select class="form-control" >
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>Australia</option>
+                  </select>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Pincode" formControlName="pincode">
+                  <div *ngIf="f.pincode.touched && f.pincode.invalid" style="color: red;">Please enter 6 digit valid pincode.</div>
+
+                  
+                </div>
+              </div>
+              <div class="row mt-4">
+                  Buyers Name:
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Last name">
+                </div>
+              </div>
+            <div class="row mt-4">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" value="+91">
+                </div>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phone" id="phone" required>
+                    <div *ngIf="f.phone.touched && f.phone.invalid" style="color: red;">Please, Enter 10 digit Mobile Number.</div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-8">
+                    <input type="text" class="form-control" placeholder="Email ID" formControlName="email" required email>
+                    <div *ngIf="f.email.touched && f.email.invalid" style="color: red;">Please, Enter valid Email ID.</div>
+
+                </div>
+                <div class="col-md-2 ml-4">
+                    <input type="number" class="form-control" placeholder="Age" formControlName="age">
+                    <div *ngIf="f.age.touched && f.age.invalid" style="color: red;">
+                        Age should be between 18 and 60.
+                    </div>
+
+                </div>
+            </div>
+            <div class="row mt-4">
+                Trainer Preference
+                
+                    <div class="radio ml-5">
+                        <label><input type="radio" name="trainer" formControlName="trainer" checked value="Male"> Male</label>
+                      </div>
+                      <div class="radio  ml-5">
+                        <label><input type="radio" name="trainer" formControlName="trainer" value="Female">Female</label>
+                      </div>
+                      <div class="radio  ml-5">
+                        <label><input type="radio" name="trainer" formControlName="trainer" value="No preference">Any</label>
+                      </div>  
+            </div>
+            <div class="row mt-4">
+               Do you need Physical Therapy?
+                    <div class="radio ml-5">
+                        <label><input type="radio" name="pt" formControlName="pt" checked value="PT not Required">No</label>
+                      </div>
+                      <div class="radio  ml-5">
+                        <label><input type="radio" name="pt" formControlName="pt" value="PT required">Yes</label>
+                      </div>
+            </div>
+            <div class="row mt-4">
+            Select a Pacakage:                 
+            </div>
+            <br>
+
+                        <div class="radio ml-5">
+                         <label><input type="radio" name="package" formControlName="package" checked value="Rs-500">One Time(Rs 500 per session)</label>
+                       </div>
+                       <div class="radio  ml-5">
+                         <label><input type="radio" name="package" formControlName="package"  value="Rs-1200">4 Sessions Per week(Rs 400 per session)</label>
+                       </div>
+                       <div class="radio ml-5">
+                        <label><input type="radio" name="package" formControlName="package" checked value="Rs-1500">5 Sessions Per week(Rs 300 per session)</label>
+                      </div>
+
+                      <div class="row mt-4">
+                       Amount per week 
+                       
+                      <div class="col">
+                        <p><span style="font-weight: 600;" >{{ this.appointmentForm.controls['package'].value  }}</span> </p>
+
+                      </div>
+                    
+                    </div> 
+                      
+             
+          </form>
+          <br>
+          <br>
+          <button class="btn btn-success" [disabled]="!appointmentForm.valid" (click)="submitApp()">Submit Request</button>
+    </div>
+</div>

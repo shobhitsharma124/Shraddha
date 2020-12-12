@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row mt-5">
+        <div *ngFor="let a of appointments; let i=index">
+            <div *ngIf="searchQuery.toLowerCase() === a.trainer.toLowerCase()"> 
+                <div class="card mr-5 mb-5" style="width: 18rem;" >
+                    <div class="card-header">
+                      Appointment
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Name: {{a.fname}} {{a.lname}} </li>
+                      <li class="list-group-item">City: {{a.city}}</li>
+                      <li class="list-group-item">Package: {{a.package}}</li>
+                      <li class="list-group-item">Trainer:{{ a.trainer}}</li>
+                      <li class="list-group-item">Contact: {{a.phone}}</li>
+                    </ul>
+                  </div>    
+            
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
